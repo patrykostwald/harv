@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#0a0f2e">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Harv">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon-180.png">
+<title>Harv</title>
+<meta name="description" content="Harv: piękna, spokojna gra o mieszaniu światła w kolorowych gazach mgławicy. Bez śmierci i liczników.">
+<meta property="og:title" content="Harv">
+<meta property="og:description" content="Mieszaj światło, przejmuj mgławice. Gra w przeglądarce i na telefonie, działa też offline.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  html, body { margin: 0; height: 100%; background: #070b1c; overflow: hidden; touch-action: none; -webkit-user-select: none; user-select: none; overscroll-behavior: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+  canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100dvh; display: block; }
+  #ui { z-index: 5; }
+  #vignette { position: fixed; inset: 0; pointer-events: none; z-index: 6;
+    background: radial-gradient(ellipse 120% 100% at 50% 45%, transparent 52%, rgba(4, 6, 18, .6) 100%); }
+  #grain { position: fixed; inset: 0; pointer-events: none; z-index: 7; opacity: .05; mix-blend-mode: overlay; }
+</style>
+</head>
+<body>
+<div id="safe" aria-hidden="true" style="position:fixed;left:0;top:0;width:0;height:0;visibility:hidden;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)"></div>
+<canvas id="far"></canvas>
+<canvas id="gl2"></canvas>
+<canvas id="bg"></canvas>
+<canvas id="gl"></canvas>
+<canvas id="fg"></canvas>
+<canvas id="ui"></canvas>
+<div id="vignette"></div>
+<script src="gestosc.js"></script>
+<script src="bg.js"></script>
+<script src="colors.js"></script>
+<script src="audio.js"></script>
+<script src="gas.js"></script>
+<script src="game.js"></script>
+<script>if ("serviceWorker" in navigator && location.protocol.startsWith("http") && location.hostname !== "127.0.0.1" && location.hostname !== "localhost") navigator.serviceWorker.register("sw.js").catch(() => {});</script>
+</body>
+</html>
